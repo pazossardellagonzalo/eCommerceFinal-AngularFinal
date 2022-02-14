@@ -1,0 +1,61 @@
+<div class="container col-md-6">
+    <div class="card" style="margin-top: 10%;">
+        <div class="card-body">
+            <form [formGroup]="managerForm"> 
+                <div class="form-group">
+                    <input type="text" formControlName="dni" class="form-control" placeholder="Dni">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('dni')?.hasError('required') && managerForm.get('dni')?.touched">
+                        <span>Campo DNI <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('nombre')?.hasError('required') && managerForm.get('nombre')?.touched">
+                        <span>Campo nombre <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="tipoEmpleado" class="form-control" placeholder="Tipo empleado">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('tipoEmpleado')?.hasError('required') && managerForm.get('tipoEmpleado')?.touched">
+                        <span>Campo tipoEmpleado <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" formControlName="tlf" class="form-control" placeholder="Tlf">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('tlf')?.hasError('required') && managerForm.get('tlf')?.touched">
+                        <span>Campo telefono <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="departamento" class="form-control" placeholder="Departamento">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('departamento')?.hasError('required') && managerForm.get('departamento')?.touched">
+                        <span>Campo departamento <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="estudios" class="form-control" placeholder="Estudios">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('estudios')?.hasError('required') && managerForm.get('estudios')?.touched">
+                        <span>Campo estudios <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="sueldo" class="form-control" placeholder="Sueldo">
+                    <div class="text-danger"
+                    *ngIf="managerForm.get('sueldo')?.hasError('required') && managerForm.get('sueldo')?.touched">
+                        <span>Campo sueldo <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <button (click)="addManager()" type="submit" [disabled]="managerForm.invalid" class="btn btn-success">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<a mat-raised-button color="primary" style="margin-left:35%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="/tablaEmpleados/loginForm/Managers">Volver</a>

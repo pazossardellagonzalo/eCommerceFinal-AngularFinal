@@ -1,0 +1,39 @@
+<button mat-raised-button color="primary" style="margin-left:45%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="formCliente">Agregar Cliente</button>
+<h1 style="font-size: 35px;margin-bottom: 2%;">Clientes:</h1>
+<table class="table table-striped"> 
+    <thead> 
+        <tr>
+            <th>DNI:</th>
+            <th>Nombre:</th>
+            <th>pApellido:</th>
+            <th>sApellido:</th>
+            <th>Edad:</th>
+            <th>Pais:</th>
+            <th>Sexo:</th>
+            <th>Telefono:</th>
+            <th>Socio:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let clientes of cliente">
+            <td>{{ clientes.dni }}</td>
+            <td>{{ clientes.nombre }}</td>
+            <td>{{ clientes.primerApellido }}</td>
+            <td>{{ clientes.segundoApellido }}</td>
+            <td>{{ clientes.edad }}</td>
+            <td>{{ clientes.pais }}</td>
+            <td>{{ clientes.sexo }}</td>
+            <td>{{ clientes.tlf }}</td>
+            <td>{{ clientes.socio }}</td>
+            <td>
+                <button [routerLink]="['formCliente', clientes.dni]" class="btn btn-secondary btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteCliente(clientes.dni)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

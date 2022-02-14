@@ -1,0 +1,37 @@
+<button mat-raised-button color="primary" style="margin-left:45%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="formEmpleado">Agregar empleado</button>
+<h1 style="font-size: 35px;margin-bottom: 2%;">Empleados:</h1>
+<table class="table table-striped"> 
+    <thead> 
+        <tr>
+            <th>DNI:</th>
+            <th>Nombre:</th>
+            <th>Tipo Empleado:</th>
+            <th>Telefono:</th>
+            <th>Departamento:</th>
+            <th>Horario:</th>
+            <th>Jornada:</th>
+            <th>Sueldo:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleados of empleado">
+            <td>{{ empleados.dni }}</td>
+            <td>{{ empleados.nombre }}</td>
+            <td>{{ empleados.tipoEmpleado }}</td>
+            <td>{{ empleados.tlf }}</td>
+            <td>{{ empleados.departamento }}</td>
+            <td>{{ empleados.horario }}</td>
+            <td>{{ empleados.jornada }}</td>
+            <td>{{ empleados.sueldo }}</td>
+            <td>
+                <button [routerLink]="['formEmpleado', empleados.dni]" class="btn btn-secondary btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteEmpleado(empleados.dni)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

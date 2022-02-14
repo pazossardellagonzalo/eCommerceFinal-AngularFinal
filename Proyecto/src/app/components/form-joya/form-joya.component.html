@@ -1,0 +1,68 @@
+<div class="container col-md-6">
+    <div class="card" style="margin-top: 10%;">
+        <div class="card-body">
+            <form [formGroup]="formJoya"> 
+                <div class="form-group">
+                    <input type="text" formControlName="cBarra" class="form-control" placeholder="Codigo barra">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('cBarra')?.hasError('required') && formJoya.get('cBarra')?.touched">
+                        <span>Campo codigo barra <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="tipoProducto" class="form-control" placeholder="Tipo producto">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('tipoProducto')?.hasError('required') && formJoya.get('tipoProducto')?.touched">
+                        <span>Campo tipo producto <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="marca" class="form-control" placeholder="Marca">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('marca')?.hasError('required') && formJoya.get('marca')?.touched">
+                        <span>Campo marca <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="descripcion" class="form-control" placeholder="Descripcion">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('descripcion')?.hasError('required') && formJoya.get('descripcion')?.touched">
+                        <span>Campo descripcion <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="material" class="form-control" placeholder="Material">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('material')?.hasError('required') && formJoya.get('material')?.touched">
+                        <span>Campo material <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="piedraPreciosa" class="form-control" placeholder="Piedra preciosa">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('piedraPreciosa')?.hasError('required') && formJoya.get('piedraPreciosa')?.touched">
+                        <span>Campo piedra preciosa <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="peso" class="form-control" placeholder="Peso">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('peso')?.hasError('required') && formJoya.get('peso')?.touched">
+                        <span>Campo peso <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="precio" class="form-control" placeholder="Precio">
+                    <div class="text-danger"
+                    *ngIf="formJoya.get('precio')?.hasError('required') && formJoya.get('precio')?.touched">
+                        <span>Campo precio <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <button (click)="addJoya()" type="submit" [disabled]="formJoya.invalid" class="btn btn-success">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<a mat-raised-button color="primary" style="margin-left:35%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="/tablaProductos/Joyas">Volver</a>

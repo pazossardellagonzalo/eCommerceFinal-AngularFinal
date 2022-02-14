@@ -1,0 +1,35 @@
+<button mat-raised-button color="primary" style="margin-left:45%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="formManager">Agregar manager</button>
+<h1 style="font-size: 35px;margin-bottom: 2%;">Managers:</h1>
+<table class="table table-striped"> 
+    <thead> 
+        <tr>
+            <th>DNI:</th>
+            <th>Nombre:</th>
+            <th>Tipo empleado:</th>
+            <th>Telefono:</th>
+            <th>Departamento:</th>
+            <th>Estudios:</th>
+            <th>Sueldo:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let managers of manager">
+            <td>{{ managers.dni }}</td>
+            <td>{{ managers.nombre }}</td>
+            <td>{{ managers.tipoEmpleado }}</td>
+            <td>{{ managers.tlf }}</td>
+            <td>{{ managers.departamento }}</td>
+            <td>{{ managers.estudios }}</td>
+            <td>{{ managers.sueldo }}</td>
+            <td>
+                <button [routerLink]="['formManager', managers.dni]" class="btn btn-secondary btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteManager(managers.dni)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

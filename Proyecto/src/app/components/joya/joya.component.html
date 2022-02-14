@@ -1,0 +1,37 @@
+<button mat-raised-button color="primary" style="margin-left:45%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="formJoya">Agregar joya</button>
+<h1 style="font-size: 35px;margin-bottom: 2%;">Joya:</h1>
+<table class="table table-striped"> 
+    <thead> 
+        <tr>
+            <th>Codigo barra:</th>
+            <th>Tipo producto:</th>
+            <th>Marca:</th>
+            <th>Descripcion:</th>
+            <th>Material:</th>
+            <th>Piedra preciosa:</th>
+            <th>Peso:</th>
+            <th>Precio:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let joyas of joya">
+            <td>{{ joyas.cBarra }}</td>
+            <td>{{ joyas.tipoProducto }}</td>
+            <td>{{ joyas.marca }}</td>
+            <td>{{ joyas.descripcion }}</td>
+            <td>{{ joyas.material }}</td>
+            <td>{{ joyas.piedraPreciosa }}</td>
+            <td>{{ joyas.peso }}</td>
+            <td>{{ joyas.precio }}</td>
+            <td>
+                <button [routerLink]="['formJoya', joyas.cBarra]" class="btn btn-secondary btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteProducto(joyas.cBarra)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

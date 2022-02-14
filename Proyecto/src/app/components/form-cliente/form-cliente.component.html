@@ -1,0 +1,75 @@
+<div class="container col-md-6">
+    <div class="card" style="margin-top: 10%;">
+        <div class="card-body">
+            <form [formGroup]="clienteForm"> 
+                <div class="form-group">
+                    <input type="text" formControlName="dni" class="form-control" placeholder="Dni">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('dni')?.hasError('required') && clienteForm.get('dni')?.touched">
+                        <span>Campo DNI <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('nombre')?.hasError('required') && clienteForm.get('nombre')?.touched">
+                        <span>Campo nombre <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="primerApellido" class="form-control" placeholder="Primer apellido">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('primerApellido')?.hasError('required') && clienteForm.get('primerApellido')?.touched">
+                        <span>Campo primer apellido <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="segundoApellido" class="form-control" placeholder="Segundo apellido">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('segundoApellido')?.hasError('required') && clienteForm.get('segundoApellido')?.touched">
+                        <span>Campo segundo apellido <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" formControlName="edad" class="form-control" placeholder="Edad">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('edad')?.hasError('required') && clienteForm.get('edad')?.touched">
+                        <span>Campo edad <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="pais" class="form-control" placeholder="Pais">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('pais')?.hasError('required') && clienteForm.get('pais')?.touched">
+                        <span>Campo pais <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="sexo" class="form-control" placeholder="Sexo">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('sexo')?.hasError('required') && clienteForm.get('sexo')?.touched">
+                        <span>Campo sexo <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" formControlName="tlf" class="form-control" placeholder="Tlf">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('tlf')?.hasError('required') && clienteForm.get('tlf')?.touched">
+                        <span>Campo telefono <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="socio" class="form-control" placeholder="Socio">
+                    <div class="text-danger"
+                    *ngIf="clienteForm.get('socio')?.hasError('required') && clienteForm.get('socio')?.touched">
+                        <span>Campo socio <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <button (click)="addCliente()" type="submit" [disabled]="clienteForm.invalid" class="btn btn-success">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<a mat-raised-button color="primary" style="margin-left:35%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="/Clientes">Volver</a>

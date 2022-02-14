@@ -1,0 +1,31 @@
+<button mat-raised-button color="primary" style="margin-left:45%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="formPedido">Agregar pedido</button>
+<h1 style="font-size: 35px;margin-bottom: 2%;">Pedidos:</h1>
+<table class="table table-striped"> 
+    <thead> 
+        <tr>
+            <th>DNI Cliente:</th>
+            <th>Numero pedido:</th>
+            <th>Objetos:</th>
+            <th>Fecha:</th>
+            <th>Importe total:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pedidos of pedido">
+            <td>{{ pedidos.dniCliente }}</td>
+            <td>{{ pedidos.nPedido }}</td>
+            <td>{{ pedidos.objetos }}</td>
+            <td>{{ pedidos.fecha }}</td>
+            <td>{{ pedidos.importeTotal }}</td>
+            <td>
+                <button [routerLink]="['formPedido', pedidos.dniCliente]" class="btn btn-secondary btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deletePedido(pedidos.dniCliente)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>

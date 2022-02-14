@@ -1,0 +1,47 @@
+<div class="container col-md-6">
+    <div class="card" style="margin-top: 10%;">
+        <div class="card-body">
+            <form [formGroup]="pedidoForm"> 
+                <div class="form-group">
+                    <input type="text" formControlName="dniCliente" class="form-control" placeholder="Dni cliente">
+                    <div class="text-danger"
+                    *ngIf="pedidoForm.get('dniCliente')?.hasError('required') && pedidoForm.get('dniCliente')?.touched">
+                        <span>Campo dni cliente <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="nPedido" class="form-control" placeholder="Numero pedido">
+                    <div class="text-danger"
+                    *ngIf="pedidoForm.get('nPedido')?.hasError('required') && pedidoForm.get('nPedido')?.touched">
+                        <span>Campo numero pedido <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="objetos" class="form-control" placeholder="Objetos">
+                    <div class="text-danger"
+                    *ngIf="pedidoForm.get('objetos')?.hasError('required') && pedidoForm.get('objetos')?.touched">
+                        <span>Campo objetos <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fecha" class="form-control" placeholder="fecha">
+                    <div class="text-danger"
+                    *ngIf="pedidoForm.get('fecha')?.hasError('required') && pedidoForm.get('fecha')?.touched">
+                        <span>Campo fecha <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" formControlName="importeTotal" class="form-control" placeholder="Importe total">
+                    <div class="text-danger"
+                    *ngIf="pedidoForm.get('importeTotal')?.hasError('required') && pedidoForm.get('importeTotal')?.touched">
+                        <span>Campo importe total <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <button (click)="addPedido()" type="submit" [disabled]="pedidoForm.invalid" class="btn btn-success">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<a mat-raised-button color="primary" style="margin-left:35%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="/Pedidos">Volver</a>

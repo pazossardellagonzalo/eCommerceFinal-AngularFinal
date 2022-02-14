@@ -1,0 +1,61 @@
+<div class="container col-md-6">
+    <div class="card" style="margin-top: 10%;">
+        <div class="card-body">
+            <form [formGroup]="formRopa"> 
+                <div class="form-group">
+                    <input type="text" formControlName="cBarra" class="form-control" placeholder="Codigo barra">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('cBarra')?.hasError('required') && formRopa.get('cBarra')?.touched">
+                        <span>Campo codigo barra <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="tipoProducto" class="form-control" placeholder="Tipo producto">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('tipoProducto')?.hasError('required') && formRopa.get('tipoProducto')?.touched">
+                        <span>Campo tipo producto <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="marca" class="form-control" placeholder="Marca">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('marca')?.hasError('required') && formRopa.get('marca')?.touched">
+                        <span>Campo marca <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="descripcion" class="form-control" placeholder="Descripcion">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('descripcion')?.hasError('required') && formRopa.get('descripcion')?.touched">
+                        <span>Campo descripcion <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="talla" class="form-control" placeholder="Talla">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('talla')?.hasError('required') && formRopa.get('talla')?.touched">
+                        <span>Campo talla <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="color" class="form-control" placeholder="Color">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('color')?.hasError('required') && formRopa.get('color')?.touched">
+                        <span>Campo color <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="precio" class="form-control" placeholder="Precio">
+                    <div class="text-danger"
+                    *ngIf="formRopa.get('precio')?.hasError('required') && formRopa.get('precio')?.touched">
+                        <span>Campo precio <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <button (click)="addRopa()" type="submit" [disabled]="formRopa.invalid" class="btn btn-success">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<a mat-raised-button color="primary" style="margin-left:35%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="/tablaProductos/Ropas">Volver</a>

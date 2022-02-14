@@ -1,0 +1,68 @@
+<div class="container col-md-6">
+    <div class="card" style="margin-top: 10%;">
+        <div class="card-body">
+            <form [formGroup]="empleadoForm"> 
+                <div class="form-group">
+                    <input type="text" formControlName="dni" class="form-control" placeholder="Dni">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('dni')?.hasError('required') && empleadoForm.get('dni')?.touched">
+                        <span>Campo DNI <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('nombre')?.hasError('required') && empleadoForm.get('nombre')?.touched">
+                        <span>Campo nombre <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="tipoEmpleado" class="form-control" placeholder="Tipo empleado">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('tipoEmpleado')?.hasError('required') && empleadoForm.get('tipoEmpleado')?.touched">
+                        <span>Campo tipoEmpleado <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="number" formControlName="tlf" class="form-control" placeholder="Tlf">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('tlf')?.hasError('required') && empleadoForm.get('tlf')?.touched">
+                        <span>Campo telefono <strong>obligatorio</strong></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="departamento" class="form-control" placeholder="Departamento">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('departamento')?.hasError('required') && empleadoForm.get('departamento')?.touched">
+                        <span>Campo departamento <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="jornada" class="form-control" placeholder="Jornada">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('jornada')?.hasError('required') && empleadoForm.get('jornada')?.touched">
+                        <span>Campo jornada <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="horario" class="form-control" placeholder="Horario">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('horario')?.hasError('required') && empleadoForm.get('horario')?.touched">
+                        <span>Campo horario <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <div class="form-group">
+                    <input type="text" formControlName="sueldo" class="form-control" placeholder="Sueldo">
+                    <div class="text-danger"
+                    *ngIf="empleadoForm.get('sueldo')?.hasError('required') && empleadoForm.get('sueldo')?.touched">
+                        <span>Campo sueldo <strong>obligatorio</strong></span>
+                    </div>
+                </div>  
+                <button (click)="addEmpleado()" type="submit" [disabled]="empleadoForm.invalid" class="btn btn-success">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<a mat-raised-button color="primary" style="margin-left:35%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="/tablaEmpleados/Empleados">Volver</a>

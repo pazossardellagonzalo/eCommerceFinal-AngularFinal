@@ -1,0 +1,35 @@
+<button mat-raised-button color="primary" style="margin-left:45%;margin-right:35%;display:block;margin-top:5%;margin-bottom:5%" routerLink="formRopa">Agregar ropa</button>
+<h1 style="font-size: 35px;margin-bottom: 2%;">Ropas:</h1>
+<table class="table table-striped"> 
+    <thead> 
+        <tr>
+            <th>Codigo barra:</th>
+            <th>Tipo producto:</th>
+            <th>Marca:</th>
+            <th>Descripcion:</th>
+            <th>Talla:</th>
+            <th>Color:</th>
+            <th>Precio:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ropas of ropa">
+            <td>{{ ropas.cBarra }}</td>
+            <td>{{ ropas.tipoProducto }}</td>
+            <td>{{ ropas.marca }}</td>
+            <td>{{ ropas.descripcion }}</td>
+            <td>{{ ropas.talla }}</td>
+            <td>{{ ropas.color }}</td>
+            <td>{{ ropas.precio }}</td>
+            <td>
+                <button [routerLink]="['formRopa', ropas.cBarra]" class="btn btn-secondary btn-sm">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteProducto(ropas.cBarra)">
+                    <i class="material-icons">delete</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>
